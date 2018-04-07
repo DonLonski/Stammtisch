@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<ResponsivePopover title="{i18n>NewAppointment}" class="sapUiPopupWithPadding" placement="HorizontalPreferredRight">
+		<content>
+			<f:SimpleForm id="appointmentForm" editable="false" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+				labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<f:content>
+					<Label text="{i18n>title}" labelFor="inputTitle"/>
+					<Input id="inputTitle"/>
+					<Label text="{i18n>startDate}" labelFor="startDate"/>
+					<DateTimePicker id="startDate" displayFormat="short" required="true" change="handleCreateChange"/>
+					<Label text="{i18n>endDate}" labelFor="endDate"/>
+					<DateTimePicker id="endDate" displayFormat="short" required="true" change="handleCreateChange"/>
+					<Label text="{i18n>furtherInfo}" labelFor="inputInfo"/>
+					<Input id="inputInfo"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button text="{i18n>Create}" press="handleOkButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleCancelButton"/>
+		</endButton>
+	</ResponsivePopover>
+</core:FragmentDefinition>

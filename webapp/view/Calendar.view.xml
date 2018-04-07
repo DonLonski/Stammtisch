@@ -1,0 +1,24 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	controllerName="StammtischApp.controller.Calendar" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Stammtisch App">
+		<content>
+			<PlanningCalendar id="planningCalendar" rows="{path: 'dataModel>/people'}" appointmentsVisualization="Filled" showRowHeaders="false"
+				showEmptyIntervalHeaders="false" appointmentSelect="handleAppointmentSelect" intervalSelect="handleAppointmentAddWithContext">
+				<toolbarContent>
+					<ToolbarSpacer/>
+					<Button id="addButton" icon="sap-icon://add" press="handleAppointmentCreate" tooltip="Add"/>
+				</toolbarContent>
+				<rows>
+					<PlanningCalendarRow title="{dataModel>name}" text="{dataModel>role}"
+						appointments="{path : 'dataModel>appointments', templateShareable: 'true'}">
+						<appointments>
+							<u:CalendarAppointment startDate="{path: 'dataModel>start', formatter: '.Formatter.formatDateString'}"
+								endDate="{path: 'dataModel>end', formatter: '.Formatter.formatDateString'}" title="{dataModel>title}"
+								text="{dataModel>info}" type="{dataModel>type}" tentative="{dataModel>tentative}"/>
+						</appointments>
+					</PlanningCalendarRow>
+				</rows>
+			</PlanningCalendar>
+		</content>
+	</Page>
+</mvc:View>
